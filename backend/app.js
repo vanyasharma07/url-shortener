@@ -2,13 +2,13 @@ import express from "express";
 const app = express();
 import dotenv from "dotenv";//importing dotenv to load environment variables from a .env file
 dotenv.config();//load environment variables from .env file
-import {nanoid} from "nanoid";
 import connectDB from "./src/config/mongo.config.js";//importing the connectDB function to connect to MongoDB
-import urlschema from "./src/model/short_url.model.js";//importing the urlschema to interact with the shorturls collection in MongoDB
 import { redirectFromShortUrl } from "./src/controller/short_url.controller.js";
-//modularising the code
-import short_url_route from "./src/routes/short_url.route.js";
+import short_url_route from "./src/routes/short_url.route.js";//modularising the code
 import { errorHandler } from "./src/utils/errorHandler.js";
+import cors from "cors";
+
+app.use(cors());
 
 // Middleware to parse JSON bodies
 app.use(express.json());

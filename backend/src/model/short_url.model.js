@@ -20,7 +20,7 @@ const shortUrlSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
        
-    }
+    }//circular refrence nahi krni chahiye
    
 });//define a Mongoose schema for the short URL, which includes fields for the full URL, the short URL, the number of clicks, and a reference to the user who created it
 
