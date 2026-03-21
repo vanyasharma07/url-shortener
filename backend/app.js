@@ -7,6 +7,7 @@ import { redirectFromShortUrl } from "./src/controller/short_url.controller.js";
 import short_url_route from "./src/routes/short_url.route.js";//modularising the code
 import { errorHandler } from "./src/utils/errorHandler.js";
 import cors from "cors";
+import auth_routes from "./src/routes/auth.routes.js";
 
 app.use(cors());
 
@@ -14,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//use get for redirecting to the original url
+app.use("/api/auth", auth_routes)
 
 app.use("/api/create", short_url_route);//use the short_url_route for handling requests to create short URLs at the /api/create endpoint
 
